@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment # mongodb deployment
+metadata:
+ name: mongodb-deployment
+ labels:
+   app: mongodb
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: mongodb
+ template:
+   metadata:
+     labels:
+       app: mongodb
+   spec: # mongodb deployment spec
+     containers:
+       - name: mongodb-container
+         image: mongo # mongo image name
+         ports: # mongodb container ports
+         - containerPort: 27017
+         env: # mongodb container env variables
+         - name: MONGO_INITDB_ROOT_USERNAME
+           valueFrom: # mongodb env variable value from secret
+             secretKeyRef:
+               name: mongodb-secret
+               key: mongodb-root-username
+         - name: MONGO_INITDB_ROOT_PASSWORD
+           valueFrom: # mongodb ev variable from secret
+             secretKeyRef:
+               name: mongodb-secret
+               key: mongodb-root-password
