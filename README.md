@@ -1,3 +1,3 @@
 # assessment-k8s
 
-![image](https://user-images.githubusercontent.com/87425471/190186196-75887ffb-bbe1-4169-bb8f-a6bd62a7beed.png)
+![image](https://user-images.githubusercontent.com/87425471/190847775-442d21f5-ae8b-4473-b46a-7ba68d4bd193.png)
